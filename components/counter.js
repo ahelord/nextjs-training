@@ -1,7 +1,7 @@
 /* Con el comando rafce se crea un componente funcional*/
 import PropTypes from 'prop-types';
 import { useState } from 'react'
-const Counter = ({ value }) => {
+const Counter = ({ value = 10 }) => {
 
     /*     Los hooks son funciones,
         useState se definen dos parametros
@@ -11,8 +11,8 @@ const Counter = ({ value }) => {
     /*     const [nombre, setNombre] = useState('Goku');
         console.log(nombre,setNombre) */
 
-    const [counter, setCounter] = useState(1);
-    console.log(1)
+    const [counter, setCounter] = useState(value);
+    console.log("counter", counter)
 
 
     const handleClickButton = (event) => {
@@ -27,12 +27,20 @@ const Counter = ({ value }) => {
         /* setCounter((c)=>c+1) */
     }
 
+    const handleResetButton = () => setCounter(value)
+
+
+    const handleSubtractButton = () => setCounter(counter - 1)
+
     return (<>
         <h1>CounterApp</h1>
         <h2> {counter} </h2>
         {/*         <button onClick={function(){console.log('+1')}}>+1</button>*/}
         {/*  <button onClick={function(e){console.log(e)}}>+1</button> */}
         <button onClick={handleClickButton}>+1</button>
+        <button onClick={handleResetButton}>Reset </button>
+        <button onClick={handleSubtractButton}>-1 </button>
+
 
     </>)
 }
