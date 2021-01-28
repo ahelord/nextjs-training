@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AddBreed from '../../components/AddBreed';
 
 const Dogs = () => {
     //const breeds = ['akita', 'boxer', 'bulldog'] 
@@ -11,8 +12,9 @@ const Dogs = () => {
     }
     return <>
         <h2>Dogs</h2>
+        <AddBreed></AddBreed>
         <hr />
-        <button onClick={handleAdd}>Agregar</button>
+     {/*    <button onClick={handleAdd}>Agregar</button> */}
         <ol>
             {
                 //for(const breed of breeds)
