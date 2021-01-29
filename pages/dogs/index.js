@@ -11,8 +11,8 @@ const Dogs = () => {
 
     }
     return <>
-        <h2>Dogs</h2>
-        <AddBreed></AddBreed>
+        <h1>Dogs</h1>
+        <AddBreed setBreeds={setBreeds}></AddBreed>
         <hr />
      {/*    <button onClick={handleAdd}>Agregar</button> */}
         <ol>
