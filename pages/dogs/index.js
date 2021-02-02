@@ -1,9 +1,10 @@
 import { useState } from "react";
 import AddBreed from '../../components/AddBreed';
+import Breeds from "../../components/Breeds";
 
 const Dogs = () => {
     //const breeds = ['akita', 'boxer', 'bulldog'] 
-    const [breeds, setBreeds] = useState(['akita', 'boxer', 'bulldog'] )
+    const [breeds, setBreeds] = useState(['dalmatian'] )
 
     const handleAdd = ()=>{
        // setBreeds(breeds.push(...breeds)) // salta error TypeError: breeds.map is not a function, no sirve por que reemplaza el estado anterior, debe crear un nuevo objeto
@@ -19,11 +20,11 @@ const Dogs = () => {
             {
                 //for(const breed of breeds)
                 //error no se puede esto
-                breeds.map(breed=>{
+                breeds.map(breed=><Breeds key={breed} breed={breed}></Breeds>)
                    // return <li>{breed}</li>
                    // error anterior por falta de key, no colocar el valor del indice
-                   return <li key={breed}>{breed}</li> // sirve la key si no hay duplicados.
-                })
+                    // sirve la key si no hay duplicados.
+           
             }
         </ol>
     </>

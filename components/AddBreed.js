@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // se puede recibir el props pero con la desestructuracion es mas simple obtener los objetos    
 const AddBreed = ({ setBreeds }) => {
     /* const [breed, setBreed] = useState()  */
-    // salta error por que cambia de un valor no definido a uno definodo
+    // salta error por que cambia de un valor no definido a uno definido
     const [breed, setBreed] = useState('')
     const handleInputChange = (event) => {
         console.log(event.target.value)
