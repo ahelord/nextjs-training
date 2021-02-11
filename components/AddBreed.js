@@ -17,7 +17,7 @@ const AddBreed = ({ setBreeds }) => {
 
             setBreeds(breeds => {
                 if (!breeds.includes(breed)) {
-                    return [...breeds, breed]
+                    return [breed,...breeds ]
                 } else {
                     return breeds
                 }
