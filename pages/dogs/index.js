@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddBreed from '../../components/AddBreed';
 import Breeds from "../../components/Breeds";
+import Head from 'next/head'
 
 const Dogs = () => {
     //const breeds = ['akita', 'boxer', 'bulldog'] 
@@ -12,6 +13,11 @@ const Dogs = () => {
 
     }
     return <>
+       <Head>
+        <title>Dogs</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+      </Head>
         <h1>Dogs</h1>
         <AddBreed setBreeds={setBreeds}></AddBreed>
         <hr />
