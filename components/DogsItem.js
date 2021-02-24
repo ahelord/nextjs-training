@@ -1,4 +1,3 @@
-
 const DogsItem = ({imgUrl}) => {
     return (
 

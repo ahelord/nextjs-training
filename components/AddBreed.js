@@ -1,8 +1,8 @@
-import { useState } from "react"
+import {useState} from "react"
 import PropTypes from 'prop-types';
 // const AddBreed = (props) => { 
 // se puede recibir el props pero con la desestructuracion es mas simple obtener los objetos    
-const AddBreed = ({ setBreeds }) => {
+const AddBreed = ({setBreeds}) => {
     /* const [breed, setBreed] = useState()  */
     // salta error por que cambia de un valor no definido a uno definido
     const [breed, setBreed] = useState('')
@@ -17,7 +17,7 @@ const AddBreed = ({ setBreeds }) => {
 
             setBreeds(breeds => {
                 if (!breeds.includes(breed)) {
-                    return [breed,...breeds ]
+                    return [breed, ...breeds]
                 } else {
                     return breeds
                 }
@@ -36,7 +36,6 @@ const AddBreed = ({ setBreeds }) => {
                 </input>
 
             </form>
-
 
 
         </>

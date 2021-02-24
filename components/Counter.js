@@ -6,7 +6,7 @@ const Counter = () => {
         counterFirst: 10,
         counterSecond: 20
     });
-    const {counterFirst,counterSecond} = state;
+    const {counterFirst, counterSecond} = state;
     console.log(counterFirst, counterSecond)
     return (
         <div>
@@ -19,9 +19,9 @@ const Counter = () => {
 
                     /*  counterFirst: counterFirst+1,
                     counterSecond: counterSecond*/
-                   /* Se puede asi pero tendria que revisar todas las atributos*/
+                    /* Se puede asi pero tendria que revisar todas las atributos*/
                     ...state,
-                    counterFirst: counterFirst+1
+                    counterFirst: counterFirst + 1
                 })
             }}>
                 +1

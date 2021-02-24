@@ -6,7 +6,7 @@ const Hooks = () => {
         <>
             <Head>
                 <title>Hooks</title>
-                          </Head>
+            </Head>
             <div>
                 <h1>Hola hooks</h1>
                 <Counter/>

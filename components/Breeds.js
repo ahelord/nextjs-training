@@ -1,10 +1,10 @@
 import useGetDogs from "../hooks/useGetDogs";
 import DogsItem from "./DogsItem";
 
-const Breeds = ({ breed }) => {
-    const { data:dogs,loading } = useGetDogs(breed);
-    console.log('loading',loading)
- 
+const Breeds = ({breed}) => {
+    const {data: dogs, loading} = useGetDogs(breed);
+    console.log('loading', loading)
+
     // Ejecutar cierto codigo de manera condicional
     // Solo quiero que se ejecute la funcion getDogsFromBreeds cuando el codigo se ejecuta una vez
 
@@ -22,9 +22,9 @@ const Breeds = ({ breed }) => {
         <>
             <h3 className="animate__animated animate__fadeIn">{breed}</h3>
             {/* <div className="card-grid">*/}
-          {/*{loading ? 'Cargando' : 'Data cargada'}*/}
+            {/*{loading ? 'Cargando' : 'Data cargada'}*/}
 
-          {loading  && <p className="animate__animated animate__flash">Cargando</p>}
+            {loading && <p className="animate__animated animate__flash">Cargando</p>}
             {dogs.map(dog => <DogsItem key={dog.uuid} {...dog}></DogsItem>)}
 
             {/*<div>*/}
