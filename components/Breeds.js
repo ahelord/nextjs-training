@@ -1,5 +1,5 @@
 import useGetDogs from "../hooks/useGetDogs";
-import DogsItem from "./BreedsItem";
+import DogsItem from "./DogsItem";
 
 const Breeds = ({ breed }) => {
     const { data:dogs,loading } = useGetDogs(breed);
