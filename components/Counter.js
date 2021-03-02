@@ -13,19 +13,22 @@ const Counter = () => {
             Counter Fisrt {counterFirst}
             <br/>
             Counter Second {counterSecond}
-            <hr/>
-            <button className="btn btn-primary" onClick={() => {
-                setState({
+            <div>
+                <button className="btn btn-primary" onClick={() => {
+                    setState({
 
-                    /*  counterFirst: counterFirst+1,
-                    counterSecond: counterSecond*/
-                    /* Se puede asi pero tendria que revisar todas las atributos*/
-                    ...state,
-                    counterFirst: counterFirst + 1
-                })
-            }}>
-                +1
-            </button>
+                        /*  counterFirst: counterFirst+1,
+                        counterSecond: counterSecond*/
+                        /* Se puede asi pero tendria que revisar todas las atributos*/
+                        ...state,
+                        counterFirst: counterFirst + 1
+                    })
+                }}>
+                    +1
+                </button>
+            </div>
+
+            <hr/>
         </div>
     );
 };

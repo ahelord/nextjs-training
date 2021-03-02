@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Counter from "../../components/Counter";
+import CounterWithHook from "../../components/CounterWithHook";
 
 const Hooks = () => {
     return (
@@ -11,6 +12,12 @@ const Hooks = () => {
                 <h1>Hola hooks</h1>
                 <Counter/>
             </div>
+
+            <div>
+                <h1>Hola counter hook custom </h1>
+                <CounterWithHook/>
+            </div>
+
         </>
 
     );
