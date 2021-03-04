@@ -1,4 +1,5 @@
 // hook no es mas que una simple funcion
+// hook useState
 import {useState} from 'react';
 export const useCounter = (initialState = 10) => {
     const [state, setState] = useState(initialState);
