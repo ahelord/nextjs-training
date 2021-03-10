@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Counter from "../../components/Counter";
 import CounterWithHook from "../../components/CounterWithHook";
-import SimpleForm from "../../hooks/useEffect/SimpleForm";
+import SimpleForm from "../../components/SimpleForm";
+import FormWithCustomHook from "../../components/FormWithHook";
 
 const Hooks = () => {
     return (
@@ -23,6 +24,10 @@ const Hooks = () => {
                 <h1>Hola Simple form useEffect</h1>
                 <SimpleForm/>
             </div>
+
+            <di>
+                <FormWithCustomHook/>
+            </di>
 
         </>
 

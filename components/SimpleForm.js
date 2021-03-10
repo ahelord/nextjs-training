@@ -37,6 +37,8 @@ const SimpleForm = () => {
         console.log('cambio email')
     },[email])
 
+    // Sera necesario tener este handle change aqui
+    // podria ser mejor con un hooks
     const handleNameChange = ({target}) => {
         console.log(target.name)
         console.log(target.value)
