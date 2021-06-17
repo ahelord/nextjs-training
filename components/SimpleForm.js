@@ -39,7 +39,7 @@ const SimpleForm = () => {
 
     // Sera necesario tener este handle change aqui
     // podria ser mejor con un hooks
-    const handleNameChange = ({target}) => {
+    const handleChangeInput = ({target}) => {
         console.log(target.name)
         console.log(target.value)
         setForm({
@@ -53,12 +53,12 @@ const SimpleForm = () => {
             <div>
                 <div className="form-group">
                     <input type="text" name="name" className="form-control" placeholder="tu nombre"
-                           autoComplete="off" value={name} onChange={handleNameChange}/>
+                           autoComplete="off" value={name} onChange={handleChangeInput}/>
 
                 </div>
                 <div className="form-group">
                     <input type="text" name="email" className="form-control" placeholder="email@example.com"
-                           autoComplete="off" value={email} onChange={handleNameChange}/>
+                           autoComplete="off" value={email} onChange={handleChangeInput}/>
 
                 </div>
                 {(name==='123') && <Message/>}

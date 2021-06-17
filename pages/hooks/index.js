@@ -3,6 +3,7 @@ import Counter from "../../components/Counter";
 import CounterWithHook from "../../components/CounterWithHook";
 import SimpleForm from "../../components/SimpleForm";
 import FormWithCustomHook from "../../components/FormWithHook";
+import MultiplesHooks from "../../components/MultiplesHooks";
 
 const Hooks = () => {
     return (
@@ -27,6 +28,10 @@ const Hooks = () => {
 
             <di>
                 <FormWithCustomHook/>
+            </di>
+
+            <di>
+                <MultiplesHooks/>
             </di>
 
         </>
