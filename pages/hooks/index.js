@@ -4,6 +4,8 @@ import CounterWithHook from "../../components/CounterWithHook";
 import SimpleForm from "../../components/SimpleForm";
 import FormWithCustomHook from "../../components/FormWithHook";
 import MultiplesHooks from "../../components/MultiplesHooks";
+import {Focus} from "../../components/Focus";
+import Reference from "../../components/Reference";
 
 const Hooks = () => {
     return (
@@ -11,28 +13,36 @@ const Hooks = () => {
             <Head>
                 <title>Hooks</title>
             </Head>
-            <div>
-                <h1>Hola hooks</h1>
+            <div className="border border-primary">
+
                 <Counter/>
             </div>
 
-            <div>
-                <h1>Hola counter hook custom </h1>
+            <div className="border border-primary">
+
                 <CounterWithHook/>
             </div>
 
-            <div>
-                <h1>Hola Simple form useEffect</h1>
+            <div className="border border-primary">
+
                 <SimpleForm/>
             </div>
 
-            <di>
+            <div className="border border-primary">
                 <FormWithCustomHook/>
-            </di>
+            </div>
 
-            <di>
+ {/*           <div className="border border-primary">
                 <MultiplesHooks/>
-            </di>
+            </div>*/}
+
+            <div className="border border-primary">
+                <Focus/>
+            </div>
+
+            <div className="border border-primary">
+                <Reference/>
+            </div>
 
         </>
 

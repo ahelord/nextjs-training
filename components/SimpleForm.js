@@ -1,6 +1,6 @@
 // useEffect nos permite ejecutar un efecto secundario cuando algo suceda en nuestro componente
 import {useEffect, useState} from 'react'
-import Message from "./message";
+import Message from "./Message";
 
 const SimpleForm = () => {
     const [form, setForm] = useState({
@@ -50,6 +50,7 @@ const SimpleForm = () => {
 
     return (
         <>
+            <h1>Hola Simple form useEffect</h1>
             <div>
                 <div className="form-group">
                     <input type="text" name="name" className="form-control" placeholder="tu nombre"

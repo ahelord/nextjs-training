@@ -10,6 +10,7 @@ const Counter = () => {
     console.log(counterFirst, counterSecond)
     return (
         <div>
+            <h1>Hola hooks</h1>
             Counter Fisrt {counterFirst}
             <br/>
             Counter Second {counterSecond}

@@ -1,6 +1,6 @@
 // useEffect nos permite ejecutar un efecto secundario cuando algo suceda en nuestro componente
 import {useEffect, useState} from 'react'
-import Message from "./message";
+import Message from "./Message";
 import useForm from "../hooks/useForm";
 
 const FormWithCustomHook = () => {
