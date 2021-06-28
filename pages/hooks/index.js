@@ -6,6 +6,7 @@ import FormWithCustomHook from "../../components/FormWithHook";
 import MultiplesHooks from "../../components/MultiplesHooks";
 import {Focus} from "../../components/Focus";
 import Reference from "../../components/Reference";
+import LayoutEffectHook from "../../components/LayoutEffectHook";
 
 const Hooks = () => {
     return (
@@ -42,6 +43,9 @@ const Hooks = () => {
 
             <div className="border border-primary">
                 <Reference/>
+            </div>
+            <div className="border border-primary">
+                <LayoutEffectHook/>
             </div>
 
         </>
