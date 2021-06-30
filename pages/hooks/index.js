@@ -8,6 +8,7 @@ import {Focus} from "../../components/Focus";
 import Reference from "../../components/Reference";
 import LayoutEffectHook from "../../components/LayoutEffectHook";
 import Memorize from "../../components/Memorize";
+import MemoHook from "../../components/MemoHook";
 
 const Hooks = () => {
     return (
@@ -53,6 +54,9 @@ const Hooks = () => {
                 <Memorize/>
             </div>
 
+            <div className="border border-primary">
+                <MemoHook/>
+            </div>
         </>
 
     );
