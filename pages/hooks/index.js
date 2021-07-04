@@ -9,6 +9,7 @@ import Reference from "../../components/Reference";
 import LayoutEffectHook from "../../components/LayoutEffectHook";
 import Memorize from "../../components/Memorize";
 import MemoHook from "../../components/MemoHook";
+import CallBackHook from "../../components/CallBackHook";
 
 const Hooks = () => {
     return (
@@ -16,6 +17,11 @@ const Hooks = () => {
             <Head>
                 <title>Hooks</title>
             </Head>
+
+            <div className="border border-primary">
+                <CallBackHook/>
+            </div>
+
             <div className="border border-primary">
 
                 <Counter/>
@@ -54,9 +60,12 @@ const Hooks = () => {
                 <Memorize/>
             </div>
 
-            <div className="border border-primary">
+{/*            <div className="border border-primary">
                 <MemoHook/>
-            </div>
+            </div>*/}
+
+
+
         </>
 
     );
