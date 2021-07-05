@@ -10,6 +10,7 @@ import LayoutEffectHook from "../../components/LayoutEffectHook";
 import Memorize from "../../components/Memorize";
 import MemoHook from "../../components/MemoHook";
 import CallBackHook from "../../components/CallBackHook";
+import {Padre} from "../../components/Padre";
 
 const Hooks = () => {
     return (
@@ -17,6 +18,10 @@ const Hooks = () => {
             <Head>
                 <title>Hooks</title>
             </Head>
+
+            <div className="border border-primary">
+            <Padre/>
+            </div>
 
             <div className="border border-primary">
                 <CallBackHook/>
@@ -49,16 +54,18 @@ const Hooks = () => {
                 <Focus/>
             </div>
 
-            <div className="border border-primary">
+{/*            <div className="border border-primary">
                 <Reference/>
             </div>
             <div className="border border-primary">
                 <LayoutEffectHook/>
-            </div>
+            </div>*/}
 
             <div className="border border-primary">
                 <Memorize/>
             </div>
+
+            {/*Se documenta temporalmente por que se demora en procesar proceso*/}
 
 {/*            <div className="border border-primary">
                 <MemoHook/>
