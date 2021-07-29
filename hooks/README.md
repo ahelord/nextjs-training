@@ -74,7 +74,37 @@ Ciclo de vida reducers
 - una sola via
 - de manera controlada
 
- 
+useReducer
+- useState y useReducer se usan para lo mismo
+- si tienen varias acciones y estar enviando con los properties
+- cuando se tiene una lógica compleja que involucra múltiples subvalores o cuando el próximo estado depende del anterior
+
+
+```
+const initialState = {count: 0};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1};
+    case 'decrement':
+      return {count: state.count - 1};
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+    </>
+  );
+}
+```
 
 
 
