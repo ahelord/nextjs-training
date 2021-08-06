@@ -63,6 +63,19 @@ const ToDo = () => {
             reset()
         }
     }
+
+    const handleDelete = (todoId) => {
+
+            const payload = {
+                id: todoId
+            }
+            const action = {
+                type: 'delete',
+                payload
+            }
+            dispatch(action);
+        
+    }
     return (
         <>
             <div className="col-5">
@@ -72,7 +85,7 @@ const ToDo = () => {
                         todos.map((todo, index) => (
 
                             <li key={todo.id}>{index + 1}. {todo.description}
-                                <button>
+                                <button onClick={()=>handleDelete(todo.id)}>
                                     Borrar
                                 </button>
 
