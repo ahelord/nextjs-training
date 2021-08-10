@@ -4,13 +4,13 @@ import useForm from "../hooks/useForm";
 
 const init = () => {
 
-    if(typeof window !== "undefined") {
-        if(localStorage.getItem("todos")) {
+    if (typeof window !== "undefined") {
+        if (localStorage.getItem("todos")) {
             return JSON.parse(localStorage.getItem("todos"))
-        } else{
+        } else {
             return []
         }
-    }else{
+    } else {
         return []
     }
 
@@ -30,8 +30,6 @@ const ToDo = () => {
     // dispatch: disparar las acciones a mi reducer le confirma a react que hubo algun cambio para redibujarlo
 
     // la funcion init le va ayudar a react a computar ese estado inicial para que funcione mas rapido el componente
-
-
 
 
     const [todos, dispatch] = useReducer(toDoReducer, [], init)
@@ -66,15 +64,24 @@ const ToDo = () => {
 
     const handleDelete = (todoId) => {
 
-            const payload = {
-                id: todoId
+        const payload = {
+            id: todoId
+        }
+        const action = {
+            type: 'delete',
+            payload
+        }
+        dispatch(action);
+
+    }
+
+    const handleToggle = (todoId) =>{
+        dispatch({
+            type:'toggle',
+            payload:{
+                id:todoId
             }
-            const action = {
-                type: 'delete',
-                payload
-            }
-            dispatch(action);
-        
+        })
     }
     return (
         <>
@@ -84,8 +91,12 @@ const ToDo = () => {
                     {
                         todos.map((todo, index) => (
 
-                            <li key={todo.id}>{index + 1}. {todo.description}
-                                <button onClick={()=>handleDelete(todo.id)}>
+                            <li key={todo.id}>
+                                <p className={`${todo.done && 'complete'}`} onClick={()=>handleToggle(todo.id)}>
+                                    {index + 1}. {todo.description}
+                                </p>
+
+                                <button onClick={() => handleDelete(todo.id)}>
                                     Borrar
                                 </button>
 
@@ -98,7 +109,7 @@ const ToDo = () => {
             </div>
             <div className="col-2">
 
-                <h4>Agregador ToDo</h4>
+                <h4>Agregar ToDo</h4>
                 <hr/>
                 <form onSubmit={handleSubmit}>
                     <input

@@ -51,3 +51,7 @@ img {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.complete{
+    text-decoration: line-through;
+}
