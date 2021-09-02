@@ -1,21 +1,46 @@
-import {useCounter} from "../hooks/useState/useCounter";
+import {useCounter} from '../hooks/useState/useCounter';
 
-const CounterWithHook = () => {
+function CounterWithHook () {
 
-    // se utilizaria un custom hook para reutilizar el uso de un contador
-    // evitar usar useState
-    // centralizar la logica en una forma abstracta
-    const initValue = 100;
-    const {state, increment, decrement,reset} = useCounter(initValue)
-    return (
-        <div>
-            <h1>Counter with hook {state}</h1>
-            <button onClick={()=>increment(2)} className="btn btn-primary">+1</button>
-            <button onClick={()=>decrement(2)} className="btn btn-secondary">-1</button>
-            <button onClick={reset} className="btn btn-info">Reset</button>
-        <hr/>
-        </div>
-    );
-};
+	/*
+	 * Se utilizaria un custom hook para reutilizar el uso de un contador
+	 * Evitar usar useState
+	 * Centralizar la logica en una forma abstracta
+	 */
+	const initValue = 100,
+	 {state, increment, decrement, reset} = useCounter(initValue);
+
+	return (
+		<div>
+			<h1>
+    Counter with hook{state}
+			</h1>
+
+			<button
+				className="btn btn-primary"
+				onClick={() => increment(2)}
+			>
+    +1
+			</button>
+
+			<button
+				className="btn btn-secondary"
+				onClick={() => decrement(2)}
+			>
+    -1
+			</button>
+
+			<button
+				className="btn btn-info"
+				onClick={reset}
+			>
+    Reset
+			</button>
+
+			<hr />
+		</div>
+	);
+
+}
 
 export default CounterWithHook;

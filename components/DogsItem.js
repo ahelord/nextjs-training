@@ -1,11 +1,11 @@
-const DogsItem = ({imgUrl}) => {
-    return (
+import Image from 'next/image';
 
-        // <div class="card"> no se puede class por que es JSX y es una palabra reservada del lenguaje
-        <div className="animate__animated animate__fadeIn">
-            <img src={imgUrl}/>
-        </div>
-    )
+function DogsItem ({imgUrl}) {
+
+	return <div className="animate__animated animate__fadeIn">
+		<Image src={imgUrl} alt="dog"/>
+	</div>;
+
 }
 
-export default DogsItem
+export default DogsItem;

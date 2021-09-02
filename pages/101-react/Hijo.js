@@ -1,41 +1,50 @@
 import PropTypes from 'prop-types';
+
 /*
-Ya no es comun enviar props sino hacer desestructuracion
-*/
+ *Ya no es comun enviar props sino hacer desestructuracion
+ */
 /*
-export default function Hijo(props) {
+ *Export default function Hijo(props) {
+ *
+ *    console.log(props)
+ *    return (
+ *
+ *        <>
+ *
+ *            <h1>{JSON.stringify(props.saludo)}</h1>
+ *        </>
+ *
+ *        )
+ *
+ *}
+ */
+/* Valor por defecto si no se envia nada*/
+function Hijo ({saludo, subtitulo}) {
 
-    console.log(props)
-    return (
+	console.log(saludo);
 
-        <>
+	return (
 
-            <h1>{JSON.stringify(props.saludo)}</h1>
-        </>
+		<>
 
-        )
+			{/* <h1>{JSON.stringify(saludo)}</h1> */}
 
-}*/
-/*Valor por defecto si no se envia nada*/
-const Hijo = ({saludo,subtitulo}) =>  {
+			<h1>
+				{saludo}
+			</h1>
 
-    console.log(saludo)
-    return (
+			<p>
+				{subtitulo}
+			</p>
+		</>
 
-        <>
-
-            {/* <h1>{JSON.stringify(saludo)}</h1> */}
-            <h1>{saludo}</h1>
-            <p>{subtitulo}</p>
-        </>
-
-    )
+	);
 
 }
-Hijo.propTypes={
-saludo:PropTypes.string.isRequired
-}
-Hijo.defaultProps={
-    subtitulo:'soy un subtitulo'
-}
+Hijo.propTypes = {
+	'saludo': PropTypes.string.isRequired
+};
+Hijo.defaultProps = {
+	'subtitulo': 'soy un subtitulo'
+};
 export default Hijo;

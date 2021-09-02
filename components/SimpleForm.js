@@ -1,73 +1,128 @@
-// useEffect nos permite ejecutar un efecto secundario cuando algo suceda en nuestro componente
-import {useEffect, useState} from 'react'
-import Message from "./Message";
+// UseEffect nos permite ejecutar un efecto secundario cuando algo suceda en nuestro componente
+import {useEffect, useState} from 'react';
+import Message from './Message';
 
-const SimpleForm = () => {
-    const [form, setForm] = useState({
-        name: '',
-        email: ''
-    });
-    const {name, email} = form;
+function SimpleForm () {
 
-    // No se puede ejecutar hooks de manera condicional
-/*
-    if(true){
-        const [state, setState] = useState([]);
-    }
-*/
+	const [
+			form,
+			setForm
+		] = useState({
+			'name': '',
+			'email': ''
+		}),
+	 {name, email} = form;
 
-    // no importa que cambie vuelvete a ejecutar
-    /*  useEffect(() => {
-          console.log('hey')
-      })*/
-    // trabajar por separados las propiedades
-    useEffect(() => {
-        console.log('hey')
-        // hay una funcion que se ejecuta cuando se desmonta el componente
-        // el procedimiento parecido a didUnMount
-    },[])
+	// No se puede ejecutar hooks de manera condicional
+	/*
+	 *If(true){
+	 *    const [state, setState] = useState([]);
+	 *}
+	 */
 
-    // Cuando cambia el estado form se ejecuta el efecto secundario
-    // la primera vez se muestra por que lo cambie
-    useEffect(() => {
-        console.log('cambio form')
-    },[form])
+	// No importa que cambie vuelvete a ejecutar
+	/*
+	 *  UseEffect(() => {
+	 *       console.log('hey')
+	 *   })
+	 */
+	// Trabajar por separados las propiedades
+	useEffect(
+		() => {
 
-    useEffect(() => {
-        console.log('cambio email')
-    },[email])
+			console.log('hey');
 
-    // Sera necesario tener este handle change aqui
-    // podria ser mejor con un hooks
-    const handleChangeInput = ({target}) => {
-        console.log(target.name)
-        console.log(target.value)
-        setForm({
-            ...form,
-            [target.name]: target.value
-        })
-    }
+			/*
+			 * Hay una funcion que se ejecuta cuando se desmonta el componente
+			 * El procedimiento parecido a didUnMount
+			 */
 
-    return (
-        <>
-            <h1>Hola Simple form useEffect</h1>
-            <div>
-                <div className="form-group">
-                    <input type="text" name="name" className="form-control" placeholder="tu nombre"
-                           autoComplete="off" value={name} onChange={handleChangeInput}/>
+		},
+		[]
+	);
 
-                </div>
-                <div className="form-group">
-                    <input type="text" name="email" className="form-control" placeholder="email@example.com"
-                           autoComplete="off" value={email} onChange={handleChangeInput}/>
+	/*
+	 * Cuando cambia el estado form se ejecuta el efecto secundario
+	 * La primera vez se muestra por que lo cambie
+	 */
+	useEffect(
 
-                </div>
-                {(name==='123') && <Message/>}
-            </div>
 
-        </>
 
-    )
+
+
+		() => {
+
+			        console.log('cambio form');
+
+		},
+		[form]
+	);
+
+	useEffect(
+		() => {
+
+			console.log('cambio email');
+
+		},
+		[email]
+	);
+
+	/*
+	 * Sera necesario tener este handle change aqui
+	 * Podria ser mejor con un hooks
+	 */
+	const handleChangeInput = ({target}) => {
+
+		console.log(target.name);
+		console.log(target.value);
+		setForm({
+			...form,
+			[target.name]: target.value
+		});
+
+	};
+
+	return (
+		<>
+			<h1>
+    Hola Simple form useEffect
+			</h1>
+
+			<div>
+				<div className="form-group">
+					<input
+						autoComplete="off"
+						className="form-control"
+						name="name"
+						onChange={handleChangeInput}
+						placeholder="tu nombre"
+						type="text"
+						value={name}
+					/>
+
+				</div>
+
+				<div className="form-group">
+					<input
+						autoComplete="off"
+						className="form-control"
+						name="email"
+						onChange={handleChangeInput}
+						placeholder="email@example.com"
+						type="text"
+						value={email}
+					/>
+
+				</div>
+
+				{name === '123' && <Message />}
+			</div>
+
+		</>
+
+	);
+
 }
 
 export default SimpleForm;

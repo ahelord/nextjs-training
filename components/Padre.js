@@ -1,34 +1,53 @@
-import React from 'react'
-import { Hijo } from './Hijo'
-import { useState,useCallback } from 'react';
+import React, {useCallback, useState} from 'react';
+import {Hijo} from './Hijo';
 
-export const Padre = () => {
+export function Padre () {
 
-    const numeros = [2,4,6,8,10];
-    const [valor, setValor] = useState(0);
+	const numeros = [
+			2,
+			4,
+			6,
+			8,
+			10
+		],
+	 [
+			valor,
+			setValor
+		] = useState(0),
 
-    const incrementar = useCallback(( num ) => {
-        setValor( value=>value + num )
-    },[setValor]);
+	 incrementar = useCallback(
+			(num) => {
+
+				setValor((value) => value + num);
+
+			},
+			[setValor]
+		);
 
 
-    return (
-        <div>
-            <h1>Padre</h1>
-            <p> Total: { valor } </p>
+	return (
+		<div>
+			<h1>
+    Padre
+			</h1>
 
-            <hr />
+			<p>
+				{' '}
+            Total:{ valor }
+			</p>
 
-            {
-                numeros.map( n => (
-                    <Hijo 
-                        key={ n }
-                        numero={ n }
-                        incrementar={ incrementar }
-                    />
-                ))
-            }
-            {/* <Hijo /> */}
-        </div>
-    )
+			<hr />
+
+			{
+				numeros.map((n) => (<Hijo
+					incrementar={incrementar}
+					key={n}
+					numero={n}
+				/>))
+			}
+
+			{/* <Hijo /> */}
+		</div>
+	);
+
 }

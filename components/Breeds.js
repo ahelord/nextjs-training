@@ -1,40 +1,62 @@
-import useGetDogs from "../hooks/useGetDogs";
-import DogsItem from "./DogsItem";
+import useGetDogs from '../hooks/useGetDogs';
+import DogsItem from './DogsItem';
 
-const Breeds = ({breed}) => {
-    const {data: dogs, loading} = useGetDogs(breed);
-    console.log('loading', loading)
+function Breeds ({breed}) {
 
-    // Ejecutar cierto codigo de manera condicional
-    // Solo quiero que se ejecute la funcion getDogsFromBreeds cuando el codigo se ejecuta una vez
+	const {'data': dogs, loading} = useGetDogs(breed);
 
-    // Custom hook: forma de extraer logica de un componente de tal forma que pueda utilizar en otro lado nuevamente
+	console.log(
+		'loading',
+		loading
+	);
 
-    // cuando se carga el componente por primera vez se cargan las imagenes
+	/*
+	 * Ejecutar cierto codigo de manera condicional
+	 * Solo quiero que se ejecute la funcion getDogsFromBreeds cuando el codigo se ejecuta una vez
+	 */
 
-    // nos permita a nosotros cuando el componente carga y cuando esta cargando.
-    /*    useEffect(async ()=>{
-           const dogs = await getDogs(breed)
-           setDogs(dogs)
-        },[breed])*/
+	// Custom hook: forma de extraer logica de un componente de tal forma que pueda utilizar en otro lado nuevamente
 
-    return (
-        <>
-            <h3 className="animate__animated animate__fadeIn">{breed}</h3>
-            {/* <div className="card-grid">*/}
-            {/*{loading ? 'Cargando' : 'Data cargada'}*/}
+	// Cuando se carga el componente por primera vez se cargan las imagenes
 
-            {loading && <p className="animate__animated animate__flash">Cargando</p>}
-            {dogs.map(dog => <DogsItem key={dog.uuid} {...dog}></DogsItem>)}
+	// Nos permita a nosotros cuando el componente carga y cuando esta cargando.
+	/*
+	 *    UseEffect(async ()=>{
+	 *        const dogs = await getDogs(breed)
+	 *        setDogs(dogs)
+	 *     },[breed])
+	 */
 
-            {/*<div>*/}
-            {/*  {imgDogs.map(imgDog => <BreedsItem key={imgDog} imgSrc={imgDog}></BreedsItem>)} */}
-            {/* tambien se puede utilizar el operador spreed para enviar todas las propiedades del objeto*/}
-            {/* {dogs.map(dog => <BreedsItem key={dog.uuid} {...dog}></BreedsItem>)}
+	return (
+		<>
+			<h3 className="animate__animated animate__fadeIn">
+				{breed}
+			</h3>
+
+			{/* <div className="card-grid">*/}
+
+			{/* {loading ? 'Cargando' : 'Data cargada'}*/}
+
+			{loading && <p className="animate__animated animate__flash">
+    Cargando
+			</p>}
+
+			{dogs.map((dog) => <DogsItem key={dog.uuid}
+				{...dog}></DogsItem>)}
+
+			{/* <div>*/}
+
+			{/*  {imgDogs.map(imgDog => <BreedsItem key={imgDog} imgSrc={imgDog}></BreedsItem>)} */}
+
+			{/* Tambien se puede utilizar el operador spreed para enviar todas las propiedades del objeto*/}
+
+			{/* {dogs.map(dog => <BreedsItem key={dog.uuid} {...dog}></BreedsItem>)}
             {/* </div>*/}
-            {/* </div>*/}
-        </>
-    )
+
+			{/* </div>*/}
+		</>
+	);
+
 }
 
-export default Breeds
+export default Breeds;

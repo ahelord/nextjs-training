@@ -1,63 +1,106 @@
-// useEffect nos permite ejecutar un efecto secundario cuando algo suceda en nuestro componente
-import {useEffect, useState} from 'react'
-import Message from "./Message";
-import useForm from "../hooks/useForm";
+// UseEffect nos permite ejecutar un efecto secundario cuando algo suceda en nuestro componente
+import {useEffect, useState} from 'react';
+import Message from './Message';
+import useForm from '../hooks/useForm';
 
-const FormWithCustomHook = () => {
-    // el poder que tienen los custom hooks para centralizar logica
-    const [formValues, handleInputChange] = useForm({
-        name: '',
-        email: '',
-        password: ''
-    });
-    const {name, email, password} = formValues;
+function FormWithCustomHook () {
 
-    useEffect(() => {
-            console.log('cambio email')
-        }
-        , [email])
+	// El poder que tienen los custom hooks para centralizar logica
+	const [
+			formValues,
+			handleInputChange
+		] = useForm({
+			'name': '',
+			'email': '',
+			'password': ''
+		}),
+	 {name, email, password} = formValues;
 
-    // se puede utilizar un custom hook para no estar creando esto por cada formulario que implemente
-    /*
-        const handleNameChange = ({target}) => {
-            console.log(target.name)
-            console.log(target.value)
-            setForm({
-                ...form,
-                [target.name]: target.value
-            })
-        }
-    */
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formValues)
-    }
-    return (
-        <>
-            <h1>Form with custom hook</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <input type="text" name="name" className="form-control" placeholder="tu nombre"
-                           autoComplete="off" value={name} onChange={handleInputChange}/>
+	useEffect(
+		() => {
 
-                </div>
-                <div className="form-group">
-                    <input type="text" name="email" className="form-control" placeholder="email@example.com"
-                           autoComplete="off" value={email} onChange={handleInputChange}/>
+			console.log('cambio email');
 
-                </div>
+		}
+		, [email]
+	);
 
-                <div className="form-group">
-                    <input type="password" name="password" className="form-control" placeholder="tu password"
-                           autoComplete="off" value={password} onChange={handleInputChange}/>
+	// Se puede utilizar un custom hook para no estar creando esto por cada formulario que implemente
+	/*
+	 *Const handleNameChange = ({target}) => {
+	 *    console.log(target.name)
+	 *    console.log(target.value)
+	 *    setForm({
+	 *        ...form,
+	 *        [target.name]: target.value
+	 *    })
+	 *}
+	 */
+	const handleSubmit = (e) => {
 
-                </div>
-                <button type="submit" className="btn-primary">Guardar</button>
-            </form>
+		e.preventDefault();
+		console.log(formValues);
 
-        </>
+	};
 
-    )
+	return (
+		<>
+			<h1>
+    Form with custom hook
+			</h1>
+
+			<form onSubmit={handleSubmit}>
+				<div className="form-group">
+					<input
+						autoComplete="off"
+						className="form-control"
+						name="name"
+						onChange={handleInputChange}
+						placeholder="tu nombre"
+						type="text"
+						value={name}
+					/>
+
+				</div>
+
+				<div className="form-group">
+					<input
+						autoComplete="off"
+						className="form-control"
+						name="email"
+						onChange={handleInputChange}
+						placeholder="email@example.com"
+						type="text"
+						value={email}
+					/>
+
+				</div>
+
+				<div className="form-group">
+					<input
+						autoComplete="off"
+						className="form-control"
+						name="password"
+						onChange={handleInputChange}
+						placeholder="tu password"
+						type="password"
+						value={password}
+					/>
+
+				</div>
+
+				<button
+					className="btn-primary"
+					type="submit"
+				>
+    Guardar
+				</button>
+			</form>
+
+		</>
+
+	);
+
 }
 
 export default FormWithCustomHook;

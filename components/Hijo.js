@@ -1,17 +1,18 @@
-import React from 'react'
 import {memo} from 'react';
 
-export const Hijo = memo(({ numero, incrementar }) => {
+// eslint-disable-next-line react/display-name
+export const Hijo = memo(({numero, incrementar}) => {
 
-    console.log('  Me volví a generar Hijo :(  ');
+	console.log('  Me volví a generar Hijo :(  ');
 
-    return (
-        <button
-            className="btn btn-primary mr-3"
-            onClick={ () => incrementar( numero ) }
-        >
-            { numero }
-        </button>
-    )
+	return (
+		<button
+			className="btn btn-primary mr-3"
+			onClick={() => incrementar(numero)}
+		>
+			{numero}
+		</button>
+	);
+
 });
 

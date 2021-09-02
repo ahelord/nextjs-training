@@ -1,63 +1,85 @@
-import {useState,useCallback,useEffect} from 'react';
-import ShowIncrement from "./ShowIncrement";
+import {useCallback, useEffect, useState} from 'react';
+import ShowIncrement from './ShowIncrement';
 
-const CallBackHook = () => {
-    const [counter, setCounter] = useState(10);
-/*    const increment = () => {
-        setCounter(counter + 1);
-    }*/
+function CallBackHook () {
 
-/*    tiene dos casos de uso:
-    funcion a componente hijo*/
+	const [
+			counter,
+			setCounter
+		] = useState(10),
 
-/*    en los parentesis va la logica a implementar
-    va regresar una version memorizada de esa funcion
-    que me sirve para enviar como argumentos a otras funciones*/
+		/*
+		 *    Const increment = () => {
+		 *     setCounter(counter + 1);
+		 *    }
+		 */
 
-  /*Si dejo solo setCounter solo hace una vez*/
+		/*
+		 *    Tiene dos casos de uso:
+		 *    funcion a componente hijo
+		 */
 
-    /*  const increment =  useCallback(
-        () => {
-            setCounter(counter+1)
-        },
-        [setCounter],
-    );*/
+		/*
+		 *    En los parentesis va la logica a implementar
+		 *    va regresar una version memorizada de esa funcion
+		 *    que me sirve para enviar como argumentos a otras funciones
+		 */
 
-    /*Tampoco se puede por que la dependencia esta cambiando siempre*/
-/*
-    const increment =  useCallback(
-        () => {
-            setCounter(counter+1)
-        },
-        [setCounter,counter],
-    );
-*/
+		/* Si dejo solo setCounter solo hace una vez*/
 
-    const increment =  useCallback(
-        (factor) => {
-            setCounter(counter=>counter+factor)
-        },
-        [setCounter]
-    );
+		/*
+		 *  Const increment =  useCallback(
+		 *     () => {
+		 *         setCounter(counter+1)
+		 *     },
+		 *     [setCounter],
+		 *  );
+		 */
 
-    /*Otra forma de utilizar useCallback es cuando se tiene
-    un useEffect tiene una dependencia y es la funcion es recomendado
-    utilizar useCallback si no esta useCallback el efecto se dispararia*/
-    useEffect(() => {
-        return () => {
+		/* Tampoco se puede por que la dependencia esta cambiando siempre*/
+		/*
+		 *Const increment =  useCallback(
+		 *    () => {
+		 *        setCounter(counter+1)
+		 *    },
+		 *    [setCounter,counter],
+		 *);
+		 */
 
-        };
-    }, [increment])
+	 increment = useCallback(
+			(factor) => {
 
-    return (
-        <>
-            <div>
-                <h1>Use Callback hook: {counter}</h1>
-            </div>
-            <ShowIncrement increment={increment}/>
-        </>
+				setCounter((counter) => counter + factor);
 
-    );
-};
+			},
+			[setCounter]
+		);
+
+	/*
+	 *Otra forma de utilizar useCallback es cuando se tiene
+	 * un useEffect tiene una dependencia y es la funcion es recomendado
+	 * utilizar useCallback si no esta useCallback el efecto se dispararia
+	 */
+	useEffect(
+		() => () => {
+
+		},
+		[increment]
+	);
+
+	return (
+		<>
+			<div>
+				<h1>
+    Use Callback hook:{counter}
+				</h1>
+			</div>
+
+			<ShowIncrement increment={increment} />
+		</>
+
+	);
+
+}
 
 export default CallBackHook;

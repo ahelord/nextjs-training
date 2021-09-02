@@ -1,85 +1,84 @@
-import Head from "next/head";
-import Counter from "../../components/Counter";
-import CounterWithHook from "../../components/CounterWithHook";
-import SimpleForm from "../../components/SimpleForm";
-import FormWithCustomHook from "../../components/FormWithHook";
-import MultiplesHooks from "../../components/MultiplesHooks";
-import { Focus } from "../../components/Focus";
-import Reference from "../../components/Reference";
-import LayoutEffectHook from "../../components/LayoutEffectHook";
-import Memorize from "../../components/Memorize";
-import MemoHook from "../../components/MemoHook";
-import CallBackHook from "../../components/CallBackHook";
-import { Padre } from "../../components/Padre";
-import  Todo  from "../../components/ToDo";
+import Head from 'next/head';
+import Counter from '../../components/Counter';
+import CounterWithHook from '../../components/CounterWithHook';
+import SimpleForm from '../../components/SimpleForm';
+import FormWithCustomHook from '../../components/FormWithHook';
+import MultiplesHooks from '../../components/MultiplesHooks';
+import {Focus} from '../../components/Focus';
+import Reference from '../../components/Reference';
+import LayoutEffectHook from '../../components/LayoutEffectHook';
+import Memorize from '../../components/Memorize';
+import MemoHook from '../../components/MemoHook';
+import CallBackHook from '../../components/CallBackHook';
+import {Padre} from '../../components/Padre';
+import Todo from '../../components/ToDo';
 import '../../helpers/introReducer';
-const Hooks = () => {
-    return (
-        <>
-            <Head>
-                <title>Hooks</title>
-            </Head>
+function Hooks () {
 
-            <div className="border border-primary">
-                <Padre />
-            </div>
+	return <>
+		<Head>
+			<title>Hooks</title>
+		</Head>
 
-            <div className="border border-primary">
-                <CallBackHook />
-            </div>
+		<div className="border border-primary">
+			<Padre />
+		</div>
 
-            <div className="border border-primary">
+		<div className="border border-primary">
+			<CallBackHook />
+		</div>
 
-                <Counter />
-            </div>
+		<div className="border border-primary">
 
-            <div className="border border-primary">
+			<Counter />
+		</div>
 
-                <CounterWithHook />
-            </div>
+		<div className="border border-primary">
 
-            <div className="border border-primary">
+			<CounterWithHook />
+		</div>
 
-                <SimpleForm />
-            </div>
+		<div className="border border-primary">
 
-            <div className="border border-primary">
-                <FormWithCustomHook />
-            </div>
+			<SimpleForm />
+		</div>
 
-            {/*           <div className="border border-primary">
+		<div className="border border-primary">
+			<FormWithCustomHook />
+		</div>
+
+		{/*           <div className="border border-primary">
                 <MultiplesHooks/>
             </div>*/}
 
-            <div className="border border-primary">
-                <Focus />
-            </div>
+		<div className="border border-primary">
+			<Focus />
+		</div>
 
-            {/*            <div className="border border-primary">
+		{/*            <div className="border border-primary">
                 <Reference/>
             </div>
             <div className="border border-primary">
                 <LayoutEffectHook/>
             </div>*/}
 
-            <div className="border border-primary">
-                <Memorize />
-            </div>
+		<div className="border border-primary">
+			<Memorize />
+		</div>
 
-            {/*Se documenta temporalmente por que se demora en procesar proceso*/}
+		{/*Se documenta temporalmente por que se demora en procesar proceso*/}
 
-            {/*            <div className="border border-primary">
+		{/*            <div className="border border-primary">
                 <MemoHook/>
             </div>*/}
 
 
-            <div className="border border-primary">
-                <Todo />
-            </div>
+		<div className="border border-primary">
+			<Todo />
+		</div>
 
-        </>
+	</>;
 
-    );
-};
+}
 
 export default Hooks;

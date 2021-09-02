@@ -1,45 +1,64 @@
-import useFetch from "../hooks/useFetch";
-import {useCounter} from "../hooks/useState/useCounter";
+import useFetch from '../hooks/useFetch';
+import {useCounter} from '../hooks/useState/useCounter';
 
-const MultiplesHooks = () => {
-    const {counter,increment,decrement} = useCounter(1)
-    const {loading,data} = useFetch("https://www.breakingbadapi.com/api/quotes/"+counter)
-    const {author,quote} = !!data && data[0];
-    return (
-        <>
-            <div>
-                <h1>Breaking bads notas</h1>
-                <hr/>
-            </div>
+function MultiplesHooks () {
 
-            {
-                loading ?
-                    <>
-                        <div className="spinner-grow text-secondary" role="status">
-                        </div><br/>
-                    </> :
+	const {counter, increment, decrement} = useCounter(1),
+	 {loading, data} = useFetch(`https://www.breakingbadapi.com/api/quotes/${counter}`),
+	 {author, quote} = Boolean(data) && data[0];
 
-                    <blockquote>
-                        <p className="mb-0">{quote}</p>
-                        <br></br>
-                        <footer className="blockquote-footer">{author}</footer>
-                    </blockquote>
-            }
+	return (
+		<>
+			<div>
+				<h1>
+    Breaking bads notas
+				</h1>
+
+				<hr />
+			</div>
+
+			{
+				loading
+					? <>
+						<div
+							className="spinner-grow text-secondary"
+							role="status"
+						/><br />
+					</>
+
+					: <blockquote>
+						<p className="mb-0">
+							{quote}
+						</p>
+
+						<br />
+
+						<footer className="blockquote-footer">
+							{author}
+						</footer>
+					</blockquote>
+			}
 
 
-            {counter > 1 &&
-            <button onClick={()=>decrement()} className="btn-primary">
-                Nota anterior
-            </button>
-            }
+			{counter > 1 &&
+    <button
+    	className="btn-primary"
+    	onClick={() => decrement()}
+    >
+        Nota anterior
+    </button>}
 
-            <button onClick={()=>increment()} className="btn-primary">
-                Siguiente nota
-            </button>
+			<button
+				className="btn-primary"
+				onClick={() => increment()}
+			>
+  Siguiente nota
+			</button>
 
 
-        </>
-    );
-};
+		</>
+	);
+
+}
 
 export default MultiplesHooks;
