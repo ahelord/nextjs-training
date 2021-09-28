@@ -105,6 +105,14 @@ function Counter() {
   );
 }
 ```
+useContenxt
 
+- tenemos un componente padre y este envia informacion al hijo, digamos que ahora que el nieto necesita la informacion
+del padre y digamos que el ahora hay un bis nieto entonces la informacion rebota del padre-hijo-nieto-bisnieto useContext
+rompe la referencia de esa informacion, la idea es centralizar en un lugar que se llama context si algun componente hijo
+necesita informacion que se encuentra en esta ubicacion lo van a extraer y les va a notificar si hay un cambio para que
+vuelvan a pintar. el context lo prefieren a redux.
+Cuando tengo dos componentes que no estan asociados por comunicacion padre hijo creo un context para guardar la informacion
+y asi los componentes pueden consumirla
 
 

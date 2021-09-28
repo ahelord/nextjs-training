@@ -95,12 +95,6 @@ export default function Home () {
 				>
   					Powered by
 					{' '}
-
-					<Image
-						alt="Vercel Logo"
-						className={styles.logo}
-						src="/vercel.svg"
-					/>
 				</a>
 			</footer>
 		</div>

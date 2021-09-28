@@ -42,20 +42,10 @@ function ToDo () {
 	// La funcion init le va ayudar a react a computar ese estado inicial para que funcione mas rapido el componente
 
 
-	const [
-			todos,
-			dispatch
-		] = useReducer(
+	const [todos, dispatch] = useReducer(
 			toDoReducer,
 			[],
-			init
-		),
-
-	 [
-			{description},
-			handleInputChange,
-			reset
-		] = useForm({
+			init), [{description}, handleInputChange, reset] = useForm({
 			'description': ''
 		});
 
